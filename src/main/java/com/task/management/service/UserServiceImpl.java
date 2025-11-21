@@ -3,10 +3,11 @@ package com.task.management.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.task.management.model.User;
 import com.task.management.repository.UserRepository;
-
+@Service
 public class UserServiceImpl implements IUserService{
 	
 	@Autowired
@@ -14,6 +15,12 @@ public class UserServiceImpl implements IUserService{
 	
 	public List<User> findAllUsers(){
 		return userRepository.findAll();
+	}
+
+	@Override
+	public User saveUser(User user) {
+		
+		return userRepository.save(user);
 	}
 
 }
